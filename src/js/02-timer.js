@@ -21,7 +21,7 @@ flatpickr(inputTime, {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      Confirm.show('', 'Будь-ласка, виберіть майбутню дату', 'OK', '');
+      Confirm.show('', 'Please choose a date in the future', 'OK', '');
       return;
     }
     btnStart.removeAttribute('disabled');
