@@ -1,11 +1,11 @@
-const btnSrart = document.querySelector('button[data-start]');
+const btnStart = document.querySelector('button[data-start]');
 const btnStop = document.querySelector('button[data-stop]');
 const body = document.body;
 let intervalId = 0;
 
-btnSrart.addEventListener('click', onBtnStartClick);
+btnStart.addEventListener('click', onBtnStartClick);
 btnStop.addEventListener('click', onBtnStopClick);
-
+btnStop.disabled = true; // Додано рядок
 
 function onBtnStartClick() {
   if (intervalId !== 0) {
@@ -14,7 +14,7 @@ function onBtnStartClick() {
   intervalId = setInterval(() => {
     getBodyBackgroundColor();
   }, 1000);
-  btnSrart.setAttribute('disabled', '');
+  btnStart.setAttribute('disabled', '');
   btnStop.removeAttribute('disabled');
 }
 
@@ -22,7 +22,7 @@ function onBtnStopClick() {
   clearInterval(intervalId);
   intervalId = 0;
   btnStop.setAttribute('disabled', '');
-  btnSrart.removeAttribute('disabled');
+  btnStart.removeAttribute('disabled');
 }
 
 function getBodyBackgroundColor() {
