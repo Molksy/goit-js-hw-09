@@ -20,7 +20,7 @@ function onFormSubmit(evt) {
   const promises = [];
 
   for (let i = 1; i <= amount; i += 1) {
-    const promise = createPromise(i, delay + (i - 1) * step)
+    createPromise(i, delay + (i - 1) * step)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
