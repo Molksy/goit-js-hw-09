@@ -27,15 +27,8 @@ function onFormSubmit(evt) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    promises.push(promise);
   }
-  Promise.all(promises)
-    .then(() => btn.removeAttribute('disabled'))
-    .catch(() => btn.removeAttribute('disabled'));
-
-  delayInput.value = '';
-  stepInput.value = '';
-  amountInput.value = '';
+  evt.target.reset();
 }
 
 function createPromise(position, delay) {
