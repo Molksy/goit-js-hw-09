@@ -6,11 +6,9 @@ const stepInput = document.querySelector('[name="step"]');
 const amountInput = document.querySelector('[name="amount"]');
 const btn = document.querySelector('button');
 
-const form = document.querySelector('.form');
-form.addEventListener('submit', onFormSubmit);
+btn.addEventListener('click', runCode);
 
-function onFormSubmit(evt) {
-  evt.preventDefault();
+function runCode() {
   btn.setAttribute('disabled', '');
 
   const delay = Number(delayInput.value);
@@ -28,7 +26,15 @@ function onFormSubmit(evt) {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   }
-  evt.target.reset();
+
+  resetForm();
+}
+
+function resetForm() {
+  delayInput.value = '';
+  stepInput.value = '';
+  amountInput.value = '';
+  btn.removeAttribute('disabled');
 }
 
 function createPromise(position, delay) {
